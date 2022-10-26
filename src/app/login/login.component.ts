@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { AuthenticationService } from './authentication.service';
 
 @Component({
   selector: 'crm-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
     minlength: 'Login doit faire 3 caractères'
   }
 
-  constructor() {
+  constructor(private authent:AuthenticationService) {
     this.loginForm = new FormGroup({
       login: new FormControl('',[Validators.required, Validators.minLength(3)]),
       password: new FormControl('',[Validators.required, checkNo$InPassword])
@@ -25,7 +26,8 @@ export class LoginComponent implements OnInit {
   }
 
   login():void{
-    console.log(this.loginForm);
+    const user:any = this.authent.authentUser(this.loginForm.value.login, this.loginForm.value.password);
+    console.log(user)
   }
 }
 
