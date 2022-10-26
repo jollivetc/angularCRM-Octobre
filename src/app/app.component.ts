@@ -8,15 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title:string = 'angularCRM';
-  maClass:string = 'textRed';
-  message:string = 'C\'est cool';
-  exist:boolean =false;
-  fruits:string[]= ['apple', 'pear','cherry'];
-
-  changeMessage($event:MouseEvent):void{
+  param: string = 'cool';
+  
+  onFinished($event:string):void{
     console.log($event);
-    this.message= 'ca marche';
-    this.maClass='textYellow'
-    this.exist=!this.exist;
+  }
+
+  onPasCool($event:string):void{
+    console.error($event);
   }
 }

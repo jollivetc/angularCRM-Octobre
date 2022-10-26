@@ -7,11 +7,15 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from './app-material.module';
+import { DummyComponent } from './component/dummy/dummy.component';
+import { HelpComponent } from './component/help/help.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    DummyComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,
