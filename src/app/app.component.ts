@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title:string = 'AngularCRM';
+  title:string = 'angularCRM';
   maClass:string = 'textRed';
   message:string = 'C\'est cool';
   exist:boolean =false;
