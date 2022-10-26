@@ -1,15 +1,10 @@
-<span>{{ title }} app is running!</span>
+<div>
+  <mat-toolbar color="primary">
+    <span>{{title}}</span>
+    <span class="fill-space"></span>
+    <span>Buttons</span>
+  </mat-toolbar>
+</div>
 
 <crm-login></crm-login>
 
-
-<div>
-  <span [ngClass]="maClass">{{message}}</span>
-  <button (click)="changeMessage($event)">Click Me</button>
-</div>
-
-<div *ngIf="exist">Coucou</div>
-
-<ul>
-  <li *ngFor="let fruit of fruits">{{fruit}}</li>
-</ul>

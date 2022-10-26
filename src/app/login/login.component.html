@@ -1,19 +1,23 @@
 <div>
   <form [formGroup]="loginForm">
     <p>
-      <label for="login">login</label>
-      <input type="text" id="login" formControlName="login">
+      <mat-form-field>
+        <mat-label for="login">login</mat-label>
+        <input matInput type="text" id="login" formControlName="login">
+      </mat-form-field>
       <span *ngIf="loginForm.get('login')?.invalid && loginForm.get('login')?.touched">
         <span *ngIf="loginForm.get('login')?.errors?.['required']">Login obligatoire</span>
         <span *ngIf="loginForm.get('login')?.errors?.['minlength']">Login doit faire 3 caract&egrave;res</span>
       </span>
     </p>
     <p>
-      <label for="password">Password</label>
-      <input type="password" id="password" formControlName="password">
+      <mat-form-field>
+        <mat-label for="password">Password</mat-label>
+        <input matInput type="password" id="password" formControlName="password">
+      </mat-form-field>
     </p>
     <p>
-      <button (click)="login()" [disabled]=" loginForm.invalid">Submit</button>
+      <button mat-button color="primary" (click)="login()" [disabled]=" loginForm.invalid">Submit</button>
     </p>
   </form>
 </div>
