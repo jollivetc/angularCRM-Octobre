@@ -27,6 +27,10 @@ export class AuthenticationService {
     return this.user;
   }
 
+  get authenticated(){
+    return this.user !== undefined
+  }
+
   disconnect():void {
     sessionStorage.clear();
     this.user = undefined;
