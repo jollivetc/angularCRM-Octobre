@@ -43,6 +43,7 @@ export class AuthenticationService {
   disconnect():void {
     sessionStorage.clear();
     this.user = undefined;
+    this.jwt = undefined;
   }
 }
 
