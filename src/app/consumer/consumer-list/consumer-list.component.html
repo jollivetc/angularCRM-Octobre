@@ -1,0 +1,15 @@
+<input type="text" [(ngModel)]="search" (keyup)="doSearch()">
+<a mat-icon-button routerLink="/consumer" matTooltip="ajout">
+  <mat-icon>add</mat-icon>
+</a>
+
+<table>
+  <tr *ngFor="let consumer of consumers | async">
+    <td>{{consumer.civility}}</td>
+    <td>{{consumer.firstname}}</td>
+    <td>{{consumer.lastname}}</td>
+    <td>{{consumer.phone | phone}}</td>
+    <td>{{consumer.email}}</td>
+    <td></td>
+  </tr>
+</table>

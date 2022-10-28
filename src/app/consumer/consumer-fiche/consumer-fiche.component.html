@@ -1,0 +1,35 @@
+<form [formGroup]="consumerForm">
+  <p>
+    <mat-form-field>
+      <mat-label for="civility">civility</mat-label>
+      <input matInput type="text" id="civility" formControlName="civility">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <mat-label for="firstname">firstname</mat-label>
+      <input matInput type="text" id="firstname" formControlName="firstname">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <mat-label for="lastname">lastname</mat-label>
+      <input matInput type="text" id="lastname" formControlName="lastname">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <mat-label for="email">email</mat-label>
+      <input matInput type="text" id="email" formControlName="email">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <mat-label for="phone">phone</mat-label>
+      <input matInput type="text" id="phone" formControlName="phone">
+    </mat-form-field>
+  </p>
+  <button mat-button color="primary" (click)="save()">
+    Save
+  </button>
+</form>
