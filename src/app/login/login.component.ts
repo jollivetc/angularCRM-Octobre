@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AuthenticationService } from './authentication.service';
 import { User } from './model/user';
 
@@ -9,8 +10,9 @@ import { User } from './model/user';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
+  private subs:Subscription[]=[];
   loginForm: FormGroup;
   errorMessagesLogin:{[key:string]:string}= {
     required : 'Login obligatoire',
@@ -29,10 +31,14 @@ export class LoginComponent implements OnInit {
   }
 
   login():void{
-    const user:User = this.authent.authentUser(this.loginForm.value.login, this.loginForm.value.password);
-    if(user){
-      this.router.navigateByUrl('/home');
-    }
+    this.subs.push(this.authent.authentUser(this.loginForm.value.login, this.loginForm.value.password).subscribe({
+      next:(user:User)=>{this.router.navigateByUrl('/home');},
+      error:(error:Error)=>{alert(error)},
+      complete:()=>{}
+    }));
+  }
+  ngOnDestroy(): void {
+      this.subs.forEach(sub=>sub.unsubscribe());
   }
 }
 
