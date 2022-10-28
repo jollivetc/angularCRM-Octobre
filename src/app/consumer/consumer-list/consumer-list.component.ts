@@ -23,4 +23,13 @@ export class ConsumerListComponent implements OnInit {
     this.consumers = this.consumerService.getFilteredList(this.search!)
   }
 
+  delete(id:number):void{
+
+    this.consumerService.delete(id).subscribe({
+      next:(data)=>{this.consumers = this.consumerService.getList()},
+      error:(error)=>{console.error(error)},
+      complete:()=>{}
+    })
+  }
+
 }

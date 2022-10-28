@@ -10,6 +10,9 @@
     <td>{{consumer.lastname}}</td>
     <td>{{consumer.phone | phone}}</td>
     <td>{{consumer.email}}</td>
-    <td></td>
+    <td>
+      <a [routerLink]="['/consumer', consumer.id]">modif</a>
+      <button (click)="delete(consumer.id!)">Delete</button>
+    </td>
   </tr>
 </table>
